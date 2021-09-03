@@ -3,7 +3,7 @@ pragma solidity >=0.7.0 <0.9.0;
 contract BeachThreadsDeal
 {
 
-    
+    //defining variables for business use case
     address public BeachTshirt;
     uint public quantityTShirts;
     address public ThreadsInc;
@@ -12,12 +12,14 @@ contract BeachThreadsDeal
     string public PaymentStatus = "Pending";
     string public OrderStatus = "Pending";
 
+    //initializing contract of Beach Tshirt Company, Create Order
     constructor(uint quantity) public
     {
         BeachTshirt = msg.sender;
         quantityTShirts = quantity;
     }
 
+    //Status of order once the order is placed
     function offerStatusAccept() public
     {
         if ( msg.sender == BeachTshirt )
@@ -30,6 +32,7 @@ contract BeachThreadsDeal
         costofTshirt = quantityTShirts*220;
     }
     
+    //Payment status from Threads Inc. & changing status to done.
     function MakePaymentTshirt() public
     {
         
